@@ -19,6 +19,7 @@ struct SessionView: View {
     @State private var isDeleted = false
     @State private var showEllipsisModal = false
     @Namespace private var namespace
+    @State private var searchText: String = ""
     
     var columns = [
         GridItem(.adaptive(minimum: 120)),
@@ -30,30 +31,35 @@ struct SessionView: View {
             NavigationView {
                 ScrollView {
                     VStack(alignment: .leading) {
+                        TextField("Search", text: $searchText)
+                            .padding(7)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+                            .padding(7)
+                        
                         LazyVGrid(columns: columns) {
                             ForEach(sessionItems) { card in
                                 ZStack {
                                     SessionCardView(session: card)
                                         .contextMenu {
                                             Button(action: {
-                                                let deletedItem = self.sessionItems[self.sessionItems.firstIndex(of: card) ?? -1]
-                                                self.moc.delete(deletedItem)
-                                                
-                                                do {
-                                                    try self.moc.save()
-                                                } catch {
-                                                    print(error)
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                    let deletedItem = self.sessionItems[self.sessionItems.firstIndex(of: card) ?? -1]
+                                                    self.moc.delete(deletedItem)
+                                                    
+                                                    do {
+                                                        try self.moc.save()
+                                                    } catch {
+                                                        print(error)
+                                                    }
+                                                    self.isDeleted = true
                                                 }
-                                                self.isDeleted = true
-                                                
                                             }) {
                                                 HStack {
                                                     Text("Delete")
-                                                    Image(systemName: "trash")
                                                 }
                                             }
                                         }
-                                        .matchedGeometryEffect(id: card.id, in: self.namespace)
                                     
                                     EllipsisView()
                                     .padding(15)
@@ -75,7 +81,7 @@ struct SessionView: View {
                             }
                         }
                         .padding(.horizontal)
-                        .animation(.spring(response: 0.5, dampingFraction: 0.67, blendDuration: 0))
+                        .animation(.spring(response: 0.6, dampingFraction: 0.75, blendDuration: 0))
                     }
                     .navigationBarTitle("Sessions")
                     .navigationBarItems(trailing: Button(action: {
@@ -88,11 +94,12 @@ struct SessionView: View {
                             .font(.system(size: 30))
                 })
                 }
+                .padding(.top, 0.3)
             }.fullScreenCover(isPresented: $showAddModal) {
                 AddModalView(showAddModal: $showAddModal, name: $name, description: $description, icon: $icon)
                     .environment(\.managedObjectContext, moc)
-                    
             }
+            
         }
         
     }
@@ -114,12 +121,12 @@ struct SessionCardView: View {
                     .font(.system(size: 18))
                     .foregroundColor(.white)
                 Spacer()
-                Image(systemName: "ellipsis")
-                    .font(.system(size: 18))
-                    .foregroundColor(.white)
-                    .frame(width: 25, height: 25)
-                    .background(Color.white.opacity(0.4))
-                    .clipShape(Circle())
+//                Image(systemName: "ellipsis")
+//                    .font(.system(size: 18))
+//                    .foregroundColor(.white)
+//                    .frame(width: 25, height: 25)
+//                    .background(Color.white.opacity(0.4))
+//                    .clipShape(Circle())
             }
             Spacer()
             Text(session.name!)
@@ -185,6 +192,7 @@ struct AddModalView: View {
                 })
             }
         }
+        .accentColor(.red)
 //        .frame(maxWidth: .infinity, maxHeight: .infinity)
 //        .padding(.vertical, 50)
 //        .background(Color(#colorLiteral(red: 0.9488552213, green: 0.9487094283, blue: 0.9693081975, alpha: 1)))
