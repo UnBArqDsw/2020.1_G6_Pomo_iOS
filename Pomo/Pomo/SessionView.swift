@@ -20,7 +20,9 @@ struct SessionView: View {
     @State private var showEllipsisModal = false
     @Namespace private var namespace
     @State private var searchText: String = ""
+    @ObservedObject private var searchControllerProvider = SearchControllerProvider()
     
+    //var searchControllerProvider: SearchControllerProvider = SearchControllerProvider()
     var columns = [
         GridItem(.adaptive(minimum: 120)),
         GridItem(.adaptive(minimum: 120))
@@ -31,14 +33,16 @@ struct SessionView: View {
             NavigationView {
                 ScrollView {
                     VStack(alignment: .leading) {
-                        TextField("Search", text: $searchText)
-                            .padding(7)
-                            .background(Color(.systemGray6))
-                            .cornerRadius(8)
-                            .padding(7)
+//                        TextField("Search", text: $searchText)
+//                            .padding(7)
+//                            .background(Color(.systemGray6))
+//                            .cornerRadius(8)
+//                            .padding(7)
                         
                         LazyVGrid(columns: columns) {
-                            ForEach(sessionItems) { card in
+                            ForEach(sessionItems.filter{
+                                searchControllerProvider.searchText.isEmpty || $0.name!.localizedStandardContains(searchControllerProvider.searchText)
+                            }, id: \.self) { card in
                                 ZStack {
                                     SessionCardView(session: card)
                                         .contextMenu {
@@ -57,6 +61,7 @@ struct SessionView: View {
                                             }) {
                                                 HStack {
                                                     Text("Delete")
+                                                    Image(systemName: "trash")
                                                 }
                                             }
                                         }
@@ -84,6 +89,10 @@ struct SessionView: View {
                         .animation(.spring(response: 0.6, dampingFraction: 0.75, blendDuration: 0))
                     }
                     .navigationBarTitle("Sessions")
+                    .overlay(ViewControllerResolver { viewController in
+                        viewController.navigationItem.searchController = self.searchControllerProvider.searchController
+                            }
+                                .frame(width: 0, height: 0))
                     .navigationBarItems(trailing: Button(action: {
                         withAnimation {
                             self.showAddModal.toggle()

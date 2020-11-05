@@ -22,6 +22,8 @@
 		D6DF3B37246DD5EE008824DF /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF3B36246DD5EE008824DF /* RingView.swift */; };
 		D6EEB167247577CC008355B6 /* Session.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6EEB165247577CC008355B6 /* Session.xcdatamodeld */; };
 		D6EEB16924757AEB008355B6 /* SessionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EEB16824757AEB008355B6 /* SessionItem.swift */; };
+		FCFBDFFF255458E100CECDD8 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBDFFE255458E100CECDD8 /* ViewControllerResolver.swift */; };
+		FCFBE00225545DC700CECDD8 /* SearchControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBE00125545DC700CECDD8 /* SearchControllerProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		D6DF3B36246DD5EE008824DF /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		D6EEB166247577CC008355B6 /* Session.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Session.xcdatamodel; sourceTree = "<group>"; };
 		D6EEB16824757AEB008355B6 /* SessionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionItem.swift; sourceTree = "<group>"; };
+		FCFBDFFE255458E100CECDD8 /* ViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
+		FCFBE00125545DC700CECDD8 /* SearchControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,10 +78,15 @@
 		D69B65CD246DA193009C3471 /* Pomo */ = {
 			isa = PBXGroup;
 			children = (
+				FCFBE00625545E1900CECDD8 /* ViewModel */,
+				FCFBE00525545E1300CECDD8 /* View */,
+				FCFBE00425545E0B00CECDD8 /* Model */,
 				D69B65CE246DA193009C3471 /* AppDelegate.swift */,
 				D69B65D0246DA193009C3471 /* SceneDelegate.swift */,
 				D69B65D2246DA193009C3471 /* ContentView.swift */,
 				D63943B82472050B00064D19 /* SessionView.swift */,
+				FCFBE00125545DC700CECDD8 /* SearchControllerProvider.swift */,
+				FCFBDFFE255458E100CECDD8 /* ViewControllerResolver.swift */,
 				D6BFB9042476E7A7008E3C38 /* TabBar.swift */,
 				D69B65E2246DA1BE009C3471 /* TimerView.swift */,
 				D6DF3B36246DD5EE008824DF /* RingView.swift */,
@@ -100,6 +109,27 @@
 				D69B65D7246DA198009C3471 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FCFBE00425545E0B00CECDD8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FCFBE00525545E1300CECDD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FCFBE00625545E1900CECDD8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,9 +207,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFBDFFF255458E100CECDD8 /* ViewControllerResolver.swift in Sources */,
 				D69B65CF246DA193009C3471 /* AppDelegate.swift in Sources */,
 				D63943B92472050B00064D19 /* SessionView.swift in Sources */,
 				D69B65D1246DA193009C3471 /* SceneDelegate.swift in Sources */,
+				FCFBE00225545DC700CECDD8 /* SearchControllerProvider.swift in Sources */,
 				D69B65E3246DA1BE009C3471 /* TimerView.swift in Sources */,
 				D69B65E9246DC27B009C3471 /* TimerManager.swift in Sources */,
 				D6DF3B37246DD5EE008824DF /* RingView.swift in Sources */,
