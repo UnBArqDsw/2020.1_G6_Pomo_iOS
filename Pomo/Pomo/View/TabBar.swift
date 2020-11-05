@@ -16,12 +16,24 @@ struct TabBar: View {
                 Image(systemName: "rectangle.fill.on.rectangle.angled.fill")
                 Text("Focus Sessions")
             }
+            StatsView().tabItem {
+                Image(systemName: "chart.bar.xaxis")
+                Text("Stats")
+            }
             TimerView().tabItem {
                 Image(systemName: "timer")
                 Text("Pomodoro")
             }
+            SocialView().tabItem {
+                Image(systemName: "person.3.fill")
+                Text("Social")
+            }
+            PreferencesView().tabItem {
+                Image(systemName: "person.crop.circle")
+                Text("Preferences")
+            }
         }
-        .accentColor(.red)
+        .accentColor(.pink)
     }
 }
 
