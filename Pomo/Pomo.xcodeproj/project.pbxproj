@@ -78,22 +78,11 @@
 		D69B65CD246DA193009C3471 /* Pomo */ = {
 			isa = PBXGroup;
 			children = (
+				D69B65CE246DA193009C3471 /* AppDelegate.swift */,
+				D69B65D0246DA193009C3471 /* SceneDelegate.swift */,
 				FCFBE00625545E1900CECDD8 /* ViewModel */,
 				FCFBE00525545E1300CECDD8 /* View */,
 				FCFBE00425545E0B00CECDD8 /* Model */,
-				D69B65CE246DA193009C3471 /* AppDelegate.swift */,
-				D69B65D0246DA193009C3471 /* SceneDelegate.swift */,
-				D69B65D2246DA193009C3471 /* ContentView.swift */,
-				D63943B82472050B00064D19 /* SessionView.swift */,
-				FCFBE00125545DC700CECDD8 /* SearchControllerProvider.swift */,
-				FCFBDFFE255458E100CECDD8 /* ViewControllerResolver.swift */,
-				D6BFB9042476E7A7008E3C38 /* TabBar.swift */,
-				D69B65E2246DA1BE009C3471 /* TimerView.swift */,
-				D6DF3B36246DD5EE008824DF /* RingView.swift */,
-				D6B24CB42471F067005306ED /* TestView.swift */,
-				D69B65E4246DA1DC009C3471 /* Helper.swift */,
-				D6EEB16824757AEB008355B6 /* SessionItem.swift */,
-				D69B65E8246DC27B009C3471 /* TimerManager.swift */,
 				D69B65D4246DA198009C3471 /* Assets.xcassets */,
 				D69B65D9246DA198009C3471 /* LaunchScreen.storyboard */,
 				D69B65DC246DA198009C3471 /* Info.plist */,
@@ -114,6 +103,10 @@
 		FCFBE00425545E0B00CECDD8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FCFBE00125545DC700CECDD8 /* SearchControllerProvider.swift */,
+				FCFBDFFE255458E100CECDD8 /* ViewControllerResolver.swift */,
+				D69B65E4246DA1DC009C3471 /* Helper.swift */,
+				D69B65E8246DC27B009C3471 /* TimerManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,6 +114,9 @@
 		FCFBE00525545E1300CECDD8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D69B65D2246DA193009C3471 /* ContentView.swift */,
+				D63943B82472050B00064D19 /* SessionView.swift */,
+				D6BFB9042476E7A7008E3C38 /* TabBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -128,6 +124,10 @@
 		FCFBE00625545E1900CECDD8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D69B65E2246DA1BE009C3471 /* TimerView.swift */,
+				D6DF3B36246DD5EE008824DF /* RingView.swift */,
+				D6B24CB42471F067005306ED /* TestView.swift */,
+				D6EEB16824757AEB008355B6 /* SessionItem.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
