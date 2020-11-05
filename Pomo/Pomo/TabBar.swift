@@ -21,6 +21,7 @@ struct TabBar: View {
                 Text("Pomodoro")
             }
         }
+        .accentColor(.red)
     }
 }
 
