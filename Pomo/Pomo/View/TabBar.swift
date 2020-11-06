@@ -21,7 +21,7 @@ struct TabBar: View {
                 Text("Stats")
             }
             TimerView().tabItem {
-                Image(systemName: "timer")
+                Image(systemName: "stopwatch.fill")
                 Text("Pomodoro")
             }
             SocialView().tabItem {

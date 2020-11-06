@@ -45,6 +45,7 @@ struct SessionView: View {
                             }, id: \.self) { card in
                                 ZStack {
                                     SessionCardView(session: card)
+                                        .contentShape(RoundedRectangle(cornerRadius: 15))
                                         .contextMenu {
                                             Button(action: {
                                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -86,7 +87,7 @@ struct SessionView: View {
                             }
                         }
                         .padding(.horizontal)
-                        .animation(.spring(response: 0.6, dampingFraction: 0.75, blendDuration: 0))
+                        .animation(.easeInOut)
                     }
                     .navigationBarTitle("Sessions")
                     .overlay(ViewControllerResolver { viewController in
