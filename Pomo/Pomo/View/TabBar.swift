@@ -20,7 +20,7 @@ struct TabBar: View {
                 Image(systemName: "chart.bar.xaxis")
                 Text("Stats")
             }
-            TimerView().tabItem {
+            ContentView().tabItem {
                 Image(systemName: "stopwatch.fill")
                 Text("Pomodoro")
             }

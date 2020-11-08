@@ -28,6 +28,7 @@ struct TimerView: View {
                 ZStack {
                     Text(secondsToMinutesAndSeconds(seconds: Int(timerManager.secondsLeft)))
                         .font(.system(size: 50, weight: .bold, design: .rounded))
+                        .foregroundColor(.black)
                         .scaleEffect(timerManager.timerState == .initial ? 0.6 : 1)
                         .blur(radius: timerManager.timerState == .initial || timerManager.timerState == .paused ? 5 : 0)
                         .animation(nil)

@@ -27,6 +27,7 @@
 		FCFBE009255488BF00CECDD8 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBE008255488BF00CECDD8 /* StatsView.swift */; };
 		FCFBE00D255488D700CECDD8 /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBE00C255488D700CECDD8 /* SocialView.swift */; };
 		FCFBE010255488FD00CECDD8 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBE00F255488FD00CECDD8 /* PreferencesView.swift */; };
+		FCFBE0132557657200CECDD8 /* SessionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBE0122557657200CECDD8 /* SessionPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		FCFBE008255488BF00CECDD8 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		FCFBE00C255488D700CECDD8 /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
 		FCFBE00F255488FD00CECDD8 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		FCFBE0122557657200CECDD8 /* SessionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				D6DF3B36246DD5EE008824DF /* RingView.swift */,
 				D6B24CB42471F067005306ED /* TestView.swift */,
 				D6EEB16824757AEB008355B6 /* SessionItem.swift */,
+				FCFBE0122557657200CECDD8 /* SessionPickerView.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				D69B65E5246DA1DC009C3471 /* Helper.swift in Sources */,
 				FCFBE009255488BF00CECDD8 /* StatsView.swift in Sources */,
 				D6BFB9052476E7A7008E3C38 /* TabBar.swift in Sources */,
+				FCFBE0132557657200CECDD8 /* SessionPickerView.swift in Sources */,
 				D69B65D3246DA193009C3471 /* ContentView.swift in Sources */,
 				D6EEB16924757AEB008355B6 /* SessionItem.swift in Sources */,
 			);
