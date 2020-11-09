@@ -104,7 +104,7 @@ struct SessionView: View {
                             .font(.system(size: 30))
                 })
                 }
-                .padding(.top, 0.3)
+//                .padding(.top, 0.3)
             }.fullScreenCover(isPresented: $showAddModal) {
                 AddModalView(showAddModal: $showAddModal, name: $name, description: $description, icon: $icon)
                     .environment(\.managedObjectContext, moc)
