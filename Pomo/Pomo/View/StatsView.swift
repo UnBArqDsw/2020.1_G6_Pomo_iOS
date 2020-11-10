@@ -23,13 +23,7 @@ struct StatsView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     ForEach(sessionItems, id: \.self) { item in
-                        LineChartView(data: [10, 12, 9, 2, 5, 13, 16], title: item.name!, legend: item.sessionDescription!, style: ChartStyle(
-                                        backgroundColor: Color.orange,
-                                        accentColor: Colors.OrangeStart,
-                                        secondGradientColor: Colors.OrangeEnd,
-                                        textColor: Color.white,
-                                        legendTextColor: Color.white.opacity(0.75),
-                                        dropShadowColor: Color.gray), dropShadow: false)
+                        LineChartView(data: [10, 12, 9, 2, 5, 13, 16], title: item.name!, legend: item.sessionDescription!, style: Styles.lineChartStylePomo, dropShadow: false)
                         
                     }
                 }
