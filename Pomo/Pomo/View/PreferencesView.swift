@@ -12,9 +12,29 @@ import SwiftUI
 struct PreferencesView: View {
     var body: some View {
         NavigationView {
-            Text("PreferencesView goes here.")
-            
-                .navigationTitle("Preferences")
+            VStack {
+                Image("mepic")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200)
+                    .clipShape(Circle())
+                Text("João Gabriel A.")
+                    .font(.headline)
+                Divider()
+                Spacer()
+                
+                Button(action: {}) {
+                    ZStack {
+                        Capsule().frame(width: 300, height: 50)
+                        Text("Edit Profile")
+                            .foregroundColor(.primary)
+                    }
+                    .foregroundColor(Color(.systemGray4))
+                    
+                }
+                
+                    .navigationTitle("Preferences")
+            }
         }
     }
 }
