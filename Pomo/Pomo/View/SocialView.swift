@@ -33,14 +33,16 @@ struct SocialView: View {
                     .offset(y: -10)
                 }
                 .padding()
-//                Text("SocialView")
+
+                Spacer()
                 
+                Text("SocialView")
                 Spacer()
                 
             }
             .tag(0)
             
-            Text("SocialView")
+            Text("ChatView")
                 .tag(1)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
