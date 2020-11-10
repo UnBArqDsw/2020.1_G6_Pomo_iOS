@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,7 @@
 		D6DF3B37246DD5EE008824DF /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF3B36246DD5EE008824DF /* RingView.swift */; };
 		D6EEB167247577CC008355B6 /* Session.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6EEB165247577CC008355B6 /* Session.xcdatamodeld */; };
 		D6EEB16924757AEB008355B6 /* SessionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EEB16824757AEB008355B6 /* SessionItem.swift */; };
+		FCD85C56255B1E0A008BBBD6 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = FCD85C55255B1E0A008BBBD6 /* SwiftUICharts */; };
 		FCFBDFFF255458E100CECDD8 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBDFFE255458E100CECDD8 /* ViewControllerResolver.swift */; };
 		FCFBE00225545DC700CECDD8 /* SearchControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBE00125545DC700CECDD8 /* SearchControllerProvider.swift */; };
 		FCFBE009255488BF00CECDD8 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBE008255488BF00CECDD8 /* StatsView.swift */; };
@@ -61,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCD85C56255B1E0A008BBBD6 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +163,7 @@
 			);
 			name = Pomo;
 			packageProductDependencies = (
+				FCD85C55255B1E0A008BBBD6 /* SwiftUICharts */,
 			);
 			productName = Pomo;
 			productReference = D69B65CB246DA193009C3471 /* Pomo.app */;
@@ -191,6 +194,7 @@
 			);
 			mainGroup = D69B65C2246DA193009C3471;
 			packageReferences = (
+				FCD85C54255B1E0A008BBBD6 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = D69B65CC246DA193009C3471 /* Products */;
 			projectDirPath = "";
@@ -432,6 +436,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FCD85C54255B1E0A008BBBD6 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FCD85C55255B1E0A008BBBD6 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCD85C54255B1E0A008BBBD6 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D6EEB165247577CC008355B6 /* Session.xcdatamodeld */ = {
