@@ -25,8 +25,7 @@ struct StatsView: View {
                     Text("Stats Go Here!")
                     LazyVGrid(columns: columns) {
                         ForEach(sessionItems, id: \.self) { item in
-                            LineChartView(data: [10, 12, 9, 32, 45, 10, 11], title: item.name!, legend: item.sessionDescription!, dropShadow: false)
-                                .padding()
+                            LineChartView(data: [10, 12, 9, 2, 5, 13, 16], title: item.name!, legend: item.sessionDescription!, dropShadow: false)
                                 
                         }
                     }
