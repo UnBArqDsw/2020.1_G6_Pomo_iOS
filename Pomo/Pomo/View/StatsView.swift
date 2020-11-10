@@ -8,12 +8,18 @@
 
 import SwiftUI
 
+@available(iOS 14.0, *)
 struct StatsView: View {
     var body: some View {
-        Text("Stats View")
+        NavigationView {
+            Text("Stats Go Here!")
+            
+                .navigationTitle("Stats")
+        }
     }
 }
 
+@available(iOS 14.0, *)
 struct StatsView_Previews: PreviewProvider {
     static var previews: some View {
         StatsView()
