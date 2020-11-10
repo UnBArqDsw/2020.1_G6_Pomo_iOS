@@ -8,12 +8,18 @@
 
 import SwiftUI
 
+@available(iOS 14.0, *)
 struct PreferencesView: View {
     var body: some View {
-        Text("PreferencesView")
+        NavigationView {
+            Text("PreferencesView goes here.")
+            
+                .navigationTitle("Preferences")
+        }
     }
 }
 
+@available(iOS 14.0, *)
 struct PreferencesView_Previews: PreviewProvider {
     static var previews: some View {
         PreferencesView()
