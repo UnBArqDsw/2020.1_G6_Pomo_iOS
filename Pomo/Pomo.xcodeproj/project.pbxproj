@@ -49,6 +49,7 @@
 		D6DF3B36246DD5EE008824DF /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		D6EEB166247577CC008355B6 /* Session.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Session.xcdatamodel; sourceTree = "<group>"; };
 		D6EEB16824757AEB008355B6 /* SessionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionItem.swift; sourceTree = "<group>"; };
+		FCD85C5A255B362F008BBBD6 /* ChartView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ChartView; path = ../../ChartView; sourceTree = "<group>"; };
 		FCFBDFFE255458E100CECDD8 /* ViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
 		FCFBE00125545DC700CECDD8 /* SearchControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerProvider.swift; sourceTree = "<group>"; };
 		FCFBE008255488BF00CECDD8 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -72,6 +73,7 @@
 		D69B65C2246DA193009C3471 = {
 			isa = PBXGroup;
 			children = (
+				FCD85C5A255B362F008BBBD6 /* ChartView */,
 				D69B65CD246DA193009C3471 /* Pomo */,
 				D69B65CC246DA193009C3471 /* Products */,
 			);
