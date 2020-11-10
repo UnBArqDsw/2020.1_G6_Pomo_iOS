@@ -56,18 +56,3 @@ struct SocialView_Previews: PreviewProvider {
         SocialView()
     }
 }
-
-@available(iOS 14.0, *)
-struct SocialPage: View {
-    var body: some View {
-        NavigationView {
-            Text("SocialView")
-                .navigationTitle("Social")
-                .navigationBarItems(trailing: Button(action: {}) {
-                    Image(systemName: "paperplane")
-                        .font(.title)
-                        .foregroundColor(.primary)
-                })
-        }
-    }
-}
