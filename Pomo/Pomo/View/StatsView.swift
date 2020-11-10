@@ -23,7 +23,7 @@ struct StatsView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     ForEach(sessionItems, id: \.self) { item in
-                        LineChartView(data: [10, 12, 9, 2, 5, 13, 16], title: item.name!, legend: item.sessionDescription!, style: Styles.lineChartStylePomo, dropShadow: false)
+                        LineChartView(data: demoData.randomElement()!, title: item.name!, legend: item.sessionDescription!, style: Styles.lineChartStylePomo, dropShadow: false)
                         
                     }
                 }
@@ -41,3 +41,8 @@ struct StatsView_Previews: PreviewProvider {
         StatsView()
     }
 }
+
+let demoData: [[Double]] = [[10, 12, 9, 2, 5, 13, 16],
+                [3, 2, 9, 10, 15, 23, 26],
+                [15, 20, 19, 25, 52, 33, 46],
+                [25, 25, 15, 32, 25, 13, 16]]
