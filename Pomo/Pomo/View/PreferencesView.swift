@@ -10,16 +10,21 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct PreferencesView: View {
+    @State private var profileName: String = "João Gabriel A."
+    @State private var bioText: String = "Só agradece 🙏🏼"
     var body: some View {
         NavigationView {
-            VStack {
+            VStack() {
                 Image("mepic")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200)
                     .clipShape(Circle())
-                Text("João Gabriel A.")
-                    .font(.headline)
+                Text(profileName)
+                    .font(.title2).bold()
+                Text(bioText)
+                    .font(.callout)
+                    .padding(.top, 5)
                 Divider()
                 Spacer()
                 
@@ -32,6 +37,7 @@ struct PreferencesView: View {
                     .foregroundColor(Color(.systemGray4))
                     
                 }
+                .padding(.vertical, 25)
                 
                     .navigationTitle("Preferences")
             }
