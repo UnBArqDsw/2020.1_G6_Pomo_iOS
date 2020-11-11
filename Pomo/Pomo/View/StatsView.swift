@@ -21,15 +21,16 @@ struct StatsView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 20) {
+                VStack(spacing: 40) {
                     ForEach(sessionItems, id: \.self) { item in
                         LineChartView(data: demoData.randomElement()!, title: item.name!, legend: item.sessionDescription!, style: Styles.lineChartStylePomo, dropShadow: false)
                         
                     }
+                    .padding()
                 }
                 .navigationTitle("Stats")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding()
+                
             }
         }
     }
