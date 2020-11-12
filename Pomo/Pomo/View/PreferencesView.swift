@@ -12,36 +12,42 @@ import SwiftUI
 struct PreferencesView: View {
     @State private var profileName: String = "João Gabriel A."
     @State private var bioText: String = "Só agradece 🙏🏼"
+    @State private var isPresenting = false
     var body: some View {
-        NavigationView {
-            VStack() {
-                Image("mepic")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200)
-                    .clipShape(Circle())
-                Text(profileName)
-                    .font(.title2).bold()
-                Text(bioText)
-                    .font(.callout)
-                    .padding(.top, 5)
-                Divider()
-                Spacer()
-                
-                Button(action: {}) {
-                    ZStack {
-                        Capsule().frame(width: 300, height: 50)
-                        Text("Edit Profile")
-                            .foregroundColor(.primary)
-                    }
-                    .foregroundColor(Color(.systemGray4))
+        ZStack {
+            NavigationView {
+                VStack() {
+                    Image("mepic")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200)
+                        .clipShape(Circle())
+                    Text(profileName)
+                        .font(.title2).bold()
+                    Text(bioText)
+                        .font(.callout)
+                        .padding(.top, 5)
+                    Divider()
+                    Spacer()
                     
+                    Button(action: { withAnimation { isPresenting.toggle() } }) {
+                        ZStack {
+                            Capsule().frame(width: 300, height: 50)
+                            Text("Edit Profile")
+                                .foregroundColor(.primary)
+                        }
+                        .foregroundColor(Color(.systemGray4))
+                        
+                    }
+                    .padding(.vertical, 25)
+                    
+                        .navigationTitle("Preferences")
                 }
-                .padding(.vertical, 25)
-                
-                    .navigationTitle("Preferences")
             }
         }
+        .fullScreenCover(isPresented: $isPresenting, content: {
+            ChangePreferencesView(showAddModal: $isPresenting, name: $profileName, bio: $bioText)
+        })
     }
 }
 
@@ -52,59 +58,23 @@ struct PreferencesView_Previews: PreviewProvider {
     }
 }
 
+@available(iOS 14.0, *)
 struct ChangePreferencesView: View {
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(fetchRequest: SessionItem.getAllSessionItems()) var sessionItems: FetchedResults<SessionItem>
     @Binding var showAddModal: Bool
     @Binding var name: String
-    @Binding var description: String
-    @Binding var icon: String
-    
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
+    @Binding var bio: String
     
     var body: some View {
         NavigationView {
             Form {
-                TextField("Name of your Focus Session", text: self.$name)
-                TextField("Description of your Focus Session", text: self.$description)
-                TextField("Icon of your Focus Session", text: self.$icon)
-                    
-
-                    .navigationBarTitle("New Session", displayMode: .inline)
-                    .navigationBarItems(leading: Button(action: {
-                        withAnimation {
-                            self.showAddModal.toggle()
-                            self.hideKeyboard()
-                        }
-                    }) {
-                        Text("Cancel")
-                        }, trailing: Button(action: {
-                            let sessionItem = SessionItem(context: self.moc)
-                            sessionItem.name = self.name
-                            sessionItem.sessionDescription = self.description
-                            sessionItem.icon = (self.icon).lowercased()
-                            
-                            do {
-                                try self.moc.save()
-                            } catch {
-                                print(error)
-                            }
-                            withAnimation {
-                                self.showAddModal.toggle()
-                            }
-                            self.hideKeyboard()
-                        }) {
-                            Text("Next")
-                })
+                TextField("Update your name:", text: $name)
+                TextField("Update your bio:", text: $bio)
             }
+            .navigationBarItems(trailing: Button(action: { showAddModal = false }) {
+                Text("Confirm")
+            })
+            .navigationTitle(Text("Update Profile"))
         }
         .accentColor(.red)
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .padding(.vertical, 50)
-//        .background(Color(#colorLiteral(red: 0.9488552213, green: 0.9487094283, blue: 0.9693081975, alpha: 1)))
-//        .edgesIgnoringSafeArea(.all)
-//        .offset(x: 0, y: showAddModal ? 0 : UIScreen.main.bounds.height)
     }
 }
