@@ -35,6 +35,7 @@ struct SocialView: View {
                         .offset(y: -10)
                     }
                     .padding()
+                    .padding(.bottom)
 
                     Spacer()
                     
@@ -51,7 +52,7 @@ struct SocialView: View {
             }
             .tag(0)
             
-            Text("ChatView")
+            ChatView()
                 .tag(1)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -76,7 +77,7 @@ struct FriendsView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                .foregroundColor(Color(.systemGray3))
+                .foregroundColor(Color(.systemGray5))
             
             HStack {
                 Image(imgName)
@@ -88,14 +89,24 @@ struct FriendsView: View {
                 VStack {
                     Text(friendName)
                         .font(.title2).bold()
+
                     Text(friendDesc)
                         .font(.subheadline)
+                    
                 }
+                
                 Spacer()
             }
             .padding()
         }
-        .frame(maxWidth: 340, maxHeight: 150)
+        .frame(maxWidth: 340, maxHeight: 100)
+    }
+}
+
+@available(iOS 14.0, *)
+struct ChatView: View {
+    var body: some View {
+        Text("ChatView")
     }
 }
 
