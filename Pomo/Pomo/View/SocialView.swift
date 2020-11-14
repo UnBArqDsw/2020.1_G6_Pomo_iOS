@@ -11,7 +11,6 @@ import SwiftUI
 @available(iOS 14.0, *)
 struct SocialView: View {
     @State private var pageIndex = 0
-    @State private var friends = ["marco", "andre", "arthur", "thallys"]
     
     var body: some View {
         TabView(selection: $pageIndex) {
@@ -40,7 +39,8 @@ struct SocialView: View {
                 
                 VStack {
                     ForEach(friends, id: \.self) { friend in
-                        FriendsView(imgName: friend)
+//                        FriendsView(imgName: friend.imgName, friendName: friend.name, friendDesc: friend.description)
+                        Text("\(friend.name)")
                     }
                 }
                 Spacer()
@@ -83,9 +83,9 @@ struct FriendsView: View {
                     .frame(width: 80, height: 80)
     
                 VStack {
-                    Text("Name")
+                    Text(friendName)
                         .font(.title2).bold()
-                    Text("Name")
+                    Text(friendDesc)
                         .font(.subheadline)
                 }
                 Spacer()
@@ -96,4 +96,10 @@ struct FriendsView: View {
     }
 }
 
+struct FriendsDemo: Hashable {
+    let name: String
+    let imgName: String
+    var description: String
+}
 
+var friends: [FriendsDemo] = [FriendsDemo(name: "Marco Antonio", imgName: "marco", description: "Dois desafios abertos."), FriendsDemo(name: "André Eduardo", imgName: "andre", description: "2 derrotas."), FriendsDemo(name: "Arthur Rodrigues", imgName: "arthur", description: "1 desafio aberto."), FriendsDemo(name: "Thallys Braz", imgName: "thallys", description: "1 vitória e 1 derrota.")]
