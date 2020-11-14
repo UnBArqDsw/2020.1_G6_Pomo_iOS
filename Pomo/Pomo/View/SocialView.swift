@@ -15,36 +15,39 @@ struct SocialView: View {
     var body: some View {
         TabView(selection: $pageIndex) {
             VStack() {
-                HStack {
-                    Text("Social")
-                        .font(.largeTitle).bold()
-                        .offset(y: 32)
-                    
+                ScrollView {
+                    HStack {
+                        Text("Social")
+                            .font(.largeTitle).bold()
+                            .offset(y: 32)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            withAnimation {
+                                pageIndex = 1
+                            }
+                        }) {
+                            Image(systemName: "paperplane")
+                                .font(.title)
+                                .foregroundColor(.primary)
+                        }
+                        .offset(y: -10)
+                    }
+                    .padding()
+
                     Spacer()
                     
-                    Button(action: {
-                        withAnimation {
-                            pageIndex = 1
+                    VStack(spacing: 1) {
+                        ForEach(friends, id: \.self) { friend in
+                            FriendsView(imgName: friend.imgName, friendName: friend.name, friendDesc: friend.description)
+                            
                         }
-                    }) {
-                        Image(systemName: "paperplane")
-                            .font(.title)
-                            .foregroundColor(.primary)
+                        .padding()
                     }
-                    .offset(y: -10)
+                    Spacer()
+                    
                 }
-                .padding()
-
-                Spacer()
-                
-                VStack {
-                    ForEach(friends, id: \.self) { friend in
-//                        FriendsView(imgName: friend.imgName, friendName: friend.name, friendDesc: friend.description)
-                        Text("\(friend.name)")
-                    }
-                }
-                Spacer()
-                
             }
             .tag(0)
             
@@ -92,7 +95,7 @@ struct FriendsView: View {
             }
             .padding()
         }
-        .frame(maxWidth: 300, maxHeight: 150)
+        .frame(maxWidth: 340, maxHeight: 150)
     }
 }
 
