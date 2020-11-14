@@ -36,7 +36,7 @@ struct SocialView: View {
 
                 Spacer()
                 
-                Text("SocialView")
+                FriendsView()
                 Spacer()
                 
             }
@@ -54,5 +54,14 @@ struct SocialView: View {
 struct SocialView_Previews: PreviewProvider {
     static var previews: some View {
         SocialView()
+    }
+}
+
+@available(iOS 14.0, *)
+struct FriendsView: View {
+    var body: some View {
+        ZStack {
+            Text("SocialView")
+        }
     }
 }
