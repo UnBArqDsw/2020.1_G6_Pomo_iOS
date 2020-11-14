@@ -11,6 +11,8 @@ import SwiftUI
 @available(iOS 14.0, *)
 struct SocialView: View {
     @State private var pageIndex = 0
+    @State private var friends = ["marco", "andre", "arthur", "thallys"]
+    
     var body: some View {
         TabView(selection: $pageIndex) {
             VStack() {
@@ -36,7 +38,11 @@ struct SocialView: View {
 
                 Spacer()
                 
-                FriendsView()
+                VStack {
+                    ForEach(friends, id: \.self) { friend in
+                        FriendsView(imgName: friend)
+                    }
+                }
                 Spacer()
                 
             }
@@ -57,11 +63,37 @@ struct SocialView_Previews: PreviewProvider {
     }
 }
 
+
+
 @available(iOS 14.0, *)
 struct FriendsView: View {
+    var imgName: String
+    var friendName: String
+    var friendDesc: String
     var body: some View {
         ZStack {
-            Text("SocialView")
+            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                .foregroundColor(Color(.systemGray3))
+            
+            HStack {
+                Image(imgName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(Circle())
+                    .frame(width: 80, height: 80)
+    
+                VStack {
+                    Text("Name")
+                        .font(.title2).bold()
+                    Text("Name")
+                        .font(.subheadline)
+                }
+                Spacer()
+            }
+            .padding()
         }
+        .frame(maxWidth: 300, maxHeight: 150)
     }
 }
+
+
