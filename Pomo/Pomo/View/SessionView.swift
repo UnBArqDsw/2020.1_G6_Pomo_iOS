@@ -131,12 +131,6 @@ struct SessionCardView: View {
                     .font(.system(size: 18))
                     .foregroundColor(.white)
                 Spacer()
-//                Image(systemName: "ellipsis")
-//                    .font(.system(size: 18))
-//                    .foregroundColor(.white)
-//                    .frame(width: 25, height: 25)
-//                    .background(Color.white.opacity(0.4))
-//                    .clipShape(Circle())
             }
             Spacer()
             Text(session.name!)
@@ -203,11 +197,6 @@ struct AddModalView: View {
             }
         }
         .accentColor(.red)
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .padding(.vertical, 50)
-//        .background(Color(#colorLiteral(red: 0.9488552213, green: 0.9487094283, blue: 0.9693081975, alpha: 1)))
-//        .edgesIgnoringSafeArea(.all)
-//        .offset(x: 0, y: showAddModal ? 0 : UIScreen.main.bounds.height)
     }
 }
 
