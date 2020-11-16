@@ -22,7 +22,6 @@ struct SessionView: View {
     @State private var searchText: String = ""
     @ObservedObject private var searchControllerProvider = SearchControllerProvider()
     
-    //var searchControllerProvider: SearchControllerProvider = SearchControllerProvider()
     var columns = [
         GridItem(.adaptive(minimum: 120)),
         GridItem(.adaptive(minimum: 120))
@@ -33,12 +32,6 @@ struct SessionView: View {
             NavigationView {
                 ScrollView {
                     VStack(alignment: .leading) {
-//                        TextField("Search", text: $searchText)
-//                            .padding(7)
-//                            .background(Color(.systemGray6))
-//                            .cornerRadius(8)
-//                            .padding(7)
-                        
                         LazyVGrid(columns: columns) {
                             ForEach(sessionItems.filter{
                                 searchControllerProvider.searchText.isEmpty || $0.name!.localizedStandardContains(searchControllerProvider.searchText)
@@ -131,12 +124,6 @@ struct SessionCardView: View {
                     .font(.system(size: 18))
                     .foregroundColor(.white)
                 Spacer()
-//                Image(systemName: "ellipsis")
-//                    .font(.system(size: 18))
-//                    .foregroundColor(.white)
-//                    .frame(width: 25, height: 25)
-//                    .background(Color.white.opacity(0.4))
-//                    .clipShape(Circle())
             }
             Spacer()
             Text(session.name!)
@@ -203,11 +190,6 @@ struct AddModalView: View {
             }
         }
         .accentColor(.red)
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .padding(.vertical, 50)
-//        .background(Color(#colorLiteral(red: 0.9488552213, green: 0.9487094283, blue: 0.9693081975, alpha: 1)))
-//        .edgesIgnoringSafeArea(.all)
-//        .offset(x: 0, y: showAddModal ? 0 : UIScreen.main.bounds.height)
     }
 }
 

@@ -11,6 +11,13 @@ import SwiftUI
 @available(iOS 14.0, *)
 struct SocialView: View {
     @State private var pageIndex = 0
+    @State private var searchText: String = ""
+    @ObservedObject private var searchControllerProvider = SearchControllerProvider()
+    @State private var isSearching = false
+    
+    func hideKeyboard() {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
     
     var body: some View {
         TabView(selection: $pageIndex) {
@@ -36,16 +43,52 @@ struct SocialView: View {
                     }
                     .padding()
                     .padding(.bottom)
+                    
+                    HStack {
+                        HStack {
+                            Spacer()
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(Color(.systemGray3))
+                            
+                            TextField("Search", text: $searchText)
+                            
 
+                        }
+                        .frame(width: isSearching ? 300 : 350, height: 35, alignment: .center)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                        .offset(x: isSearching ? -5 : 0)
+                        .onTapGesture {
+                            withAnimation {
+                                isSearching = true
+                            }
+                        }
+                        
+                        if isSearching {
+                            Button(action: {
+                                isSearching.toggle()
+                                hideKeyboard()
+                                searchText = ""
+                            }) {
+                                Text("Cancel")
+                            }
+                        }
+                        
+                    }
+                    .animation(.easeInOut)
+                    
                     Spacer()
                     
                     VStack(spacing: 1) {
-                        ForEach(friends, id: \.self) { friend in
+                        ForEach(friends.filter {
+                            searchText.isEmpty || $0.name.contains(searchText)
+                        }, id: \.self) { friend in
                             FriendsView(imgName: friend.imgName, friendName: friend.name, friendDesc: friend.description)
                             
                         }
                         .padding()
                     }
+                    .animation(.spring())
                     Spacer()
                     
                 }
@@ -56,6 +99,7 @@ struct SocialView: View {
                 .tag(1)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .accentColor(.pink)
         
     }
 }
@@ -74,6 +118,7 @@ struct FriendsView: View {
     var imgName: String
     var friendName: String
     var friendDesc: String
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25.0, style: .continuous)
