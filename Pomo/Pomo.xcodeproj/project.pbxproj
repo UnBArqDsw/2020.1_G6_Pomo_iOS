@@ -23,6 +23,7 @@
 		D6EEB167247577CC008355B6 /* Session.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6EEB165247577CC008355B6 /* Session.xcdatamodeld */; };
 		D6EEB16924757AEB008355B6 /* SessionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EEB16824757AEB008355B6 /* SessionItem.swift */; };
 		FCD85C56255B1E0A008BBBD6 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = FCD85C55255B1E0A008BBBD6 /* SwiftUICharts */; };
+		FCF6B3C92562D4CB00CACD5B /* SwiftyChat in Frameworks */ = {isa = PBXBuildFile; productRef = FCF6B3C82562D4CB00CACD5B /* SwiftyChat */; };
 		FCFBDFFF255458E100CECDD8 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBDFFE255458E100CECDD8 /* ViewControllerResolver.swift */; };
 		FCFBE00225545DC700CECDD8 /* SearchControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBE00125545DC700CECDD8 /* SearchControllerProvider.swift */; };
 		FCFBE009255488BF00CECDD8 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBE008255488BF00CECDD8 /* StatsView.swift */; };
@@ -63,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCF6B3C92562D4CB00CACD5B /* SwiftyChat in Frameworks */,
 				FCD85C56255B1E0A008BBBD6 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +168,7 @@
 			name = Pomo;
 			packageProductDependencies = (
 				FCD85C55255B1E0A008BBBD6 /* SwiftUICharts */,
+				FCF6B3C82562D4CB00CACD5B /* SwiftyChat */,
 			);
 			productName = Pomo;
 			productReference = D69B65CB246DA193009C3471 /* Pomo.app */;
@@ -197,6 +200,7 @@
 			mainGroup = D69B65C2246DA193009C3471;
 			packageReferences = (
 				FCD85C54255B1E0A008BBBD6 /* XCRemoteSwiftPackageReference "ChartView" */,
+				FCF6B3C72562D4CB00CACD5B /* XCRemoteSwiftPackageReference "SwiftyChat" */,
 			);
 			productRefGroup = D69B65CC246DA193009C3471 /* Products */;
 			projectDirPath = "";
@@ -448,6 +452,14 @@
 				minimumVersion = 1.5.4;
 			};
 		};
+		FCF6B3C72562D4CB00CACD5B /* XCRemoteSwiftPackageReference "SwiftyChat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EnesKaraosman/SwiftyChat.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -455,6 +467,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FCD85C54255B1E0A008BBBD6 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		FCF6B3C82562D4CB00CACD5B /* SwiftyChat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCF6B3C72562D4CB00CACD5B /* XCRemoteSwiftPackageReference "SwiftyChat" */;
+			productName = SwiftyChat;
 		};
 /* End XCSwiftPackageProductDependency section */
 
