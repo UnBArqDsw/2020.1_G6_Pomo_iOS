@@ -22,7 +22,6 @@ struct SessionView: View {
     @State private var searchText: String = ""
     @ObservedObject private var searchControllerProvider = SearchControllerProvider()
     
-    //var searchControllerProvider: SearchControllerProvider = SearchControllerProvider()
     var columns = [
         GridItem(.adaptive(minimum: 120)),
         GridItem(.adaptive(minimum: 120))
@@ -33,12 +32,6 @@ struct SessionView: View {
             NavigationView {
                 ScrollView {
                     VStack(alignment: .leading) {
-//                        TextField("Search", text: $searchText)
-//                            .padding(7)
-//                            .background(Color(.systemGray6))
-//                            .cornerRadius(8)
-//                            .padding(7)
-                        
                         LazyVGrid(columns: columns) {
                             ForEach(sessionItems.filter{
                                 searchControllerProvider.searchText.isEmpty || $0.name!.localizedStandardContains(searchControllerProvider.searchText)
