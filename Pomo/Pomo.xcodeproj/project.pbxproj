@@ -24,6 +24,9 @@
 		D6EEB16924757AEB008355B6 /* SessionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EEB16824757AEB008355B6 /* SessionItem.swift */; };
 		FCD85C56255B1E0A008BBBD6 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = FCD85C55255B1E0A008BBBD6 /* SwiftUICharts */; };
 		FCF6B3C92562D4CB00CACD5B /* SwiftyChat in Frameworks */ = {isa = PBXBuildFile; productRef = FCF6B3C82562D4CB00CACD5B /* SwiftyChat */; };
+		FCF6B3CC2562D50100CACD5B /* Chat1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6B3CB2562D50100CACD5B /* Chat1View.swift */; };
+		FCF6B3CF2562D55E00CACD5B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6B3CE2562D55E00CACD5B /* Extensions.swift */; };
+		FCF6B3D22562D58200CACD5B /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6B3D12562D58200CACD5B /* ChatListView.swift */; };
 		FCFBDFFF255458E100CECDD8 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBDFFE255458E100CECDD8 /* ViewControllerResolver.swift */; };
 		FCFBE00225545DC700CECDD8 /* SearchControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBE00125545DC700CECDD8 /* SearchControllerProvider.swift */; };
 		FCFBE009255488BF00CECDD8 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBE008255488BF00CECDD8 /* StatsView.swift */; };
@@ -51,6 +54,9 @@
 		D6EEB166247577CC008355B6 /* Session.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Session.xcdatamodel; sourceTree = "<group>"; };
 		D6EEB16824757AEB008355B6 /* SessionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionItem.swift; sourceTree = "<group>"; };
 		FCD85C5A255B362F008BBBD6 /* ChartView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ChartView; path = ../../ChartView; sourceTree = "<group>"; };
+		FCF6B3CB2562D50100CACD5B /* Chat1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat1View.swift; sourceTree = "<group>"; };
+		FCF6B3CE2562D55E00CACD5B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FCF6B3D12562D58200CACD5B /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
 		FCFBDFFE255458E100CECDD8 /* ViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
 		FCFBE00125545DC700CECDD8 /* SearchControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerProvider.swift; sourceTree = "<group>"; };
 		FCFBE008255488BF00CECDD8 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 				FCFBDFFE255458E100CECDD8 /* ViewControllerResolver.swift */,
 				D69B65E4246DA1DC009C3471 /* Helper.swift */,
 				D69B65E8246DC27B009C3471 /* TimerManager.swift */,
+				FCF6B3CE2562D55E00CACD5B /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,6 +141,8 @@
 				FCFBE008255488BF00CECDD8 /* StatsView.swift */,
 				FCFBE00C255488D700CECDD8 /* SocialView.swift */,
 				FCFBE00F255488FD00CECDD8 /* PreferencesView.swift */,
+				FCF6B3D12562D58200CACD5B /* ChatListView.swift */,
+				FCF6B3CB2562D50100CACD5B /* Chat1View.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,10 +248,13 @@
 				D69B65E3246DA1BE009C3471 /* TimerView.swift in Sources */,
 				D69B65E9246DC27B009C3471 /* TimerManager.swift in Sources */,
 				D6DF3B37246DD5EE008824DF /* RingView.swift in Sources */,
+				FCF6B3D22562D58200CACD5B /* ChatListView.swift in Sources */,
 				D6EEB167247577CC008355B6 /* Session.xcdatamodeld in Sources */,
 				D6B24CB52471F067005306ED /* TestView.swift in Sources */,
 				D69B65E5246DA1DC009C3471 /* Helper.swift in Sources */,
+				FCF6B3CC2562D50100CACD5B /* Chat1View.swift in Sources */,
 				FCFBE009255488BF00CECDD8 /* StatsView.swift in Sources */,
+				FCF6B3CF2562D55E00CACD5B /* Extensions.swift in Sources */,
 				D6BFB9052476E7A7008E3C38 /* TabBar.swift in Sources */,
 				FCFBE0132557657200CECDD8 /* SessionPickerView.swift in Sources */,
 				D69B65D3246DA193009C3471 /* ContentView.swift in Sources */,
