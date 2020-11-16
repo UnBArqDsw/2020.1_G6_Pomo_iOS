@@ -24,7 +24,9 @@ struct StatsView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 40) {
-                    ForEach(sessionItems, id: \.self) { item in
+                    ForEach(sessionItems.filter{
+                        searchControllerProvider.searchText.isEmpty || $0.name!.localizedStandardContains(searchControllerProvider.searchText)
+                    }, id: \.self) { item in
                         LineChartView(data: demoData.randomElement()!, title: item.name!, legend: item.sessionDescription!, style: Styles.lineChartStylePomo, dropShadow: false)
                         
                     }
