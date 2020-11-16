@@ -12,6 +12,8 @@ import SwiftUICharts
 @available(iOS 14.0, *)
 struct StatsView: View {
     @FetchRequest(fetchRequest: SessionItem.getAllSessionItems()) var sessionItems: FetchedResults<SessionItem>
+    @State private var searchText: String = ""
+    @ObservedObject private var searchControllerProvider = SearchControllerProvider()
     
     var columns = [
         GridItem(.adaptive(minimum: 120)),
@@ -32,7 +34,12 @@ struct StatsView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
             }
+            .overlay(ViewControllerResolver { viewController in
+                viewController.navigationItem.searchController = self.searchControllerProvider.searchController
+                    }
+                        .frame(width: 0, height: 0))
         }
+        
     }
 }
 
