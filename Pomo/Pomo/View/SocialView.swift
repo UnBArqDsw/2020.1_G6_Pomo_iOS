@@ -95,7 +95,7 @@ struct SocialView: View {
             }
             .tag(0)
             
-            ChatView()
+            ChatListView(pageIndex: $pageIndex)
                 .tag(1)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -145,13 +145,6 @@ struct FriendsView: View {
             .padding()
         }
         .frame(maxWidth: 340, maxHeight: 100)
-    }
-}
-
-@available(iOS 14.0, *)
-struct ChatView: View {
-    var body: some View {
-        Text("ChatView")
     }
 }
 
