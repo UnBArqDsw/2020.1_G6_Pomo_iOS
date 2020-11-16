@@ -97,6 +97,9 @@ struct SocialView: View {
             
             ChatListView(pageIndex: $pageIndex)
                 .tag(1)
+            
+            Chat1View()
+                .tag(2)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         .accentColor(.pink)

@@ -31,6 +31,11 @@ struct ChatListView: View {
             List {
                 ForEach(friends, id: \.self) { item in
                     ButtonLinkView(chatName: item.name)
+                        .onTapGesture {
+                            withAnimation {
+                                pageIndex = 2
+                            }
+                        }
                 }
                 
             }
