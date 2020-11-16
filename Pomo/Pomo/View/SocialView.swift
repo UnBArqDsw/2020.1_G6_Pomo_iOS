@@ -15,6 +15,10 @@ struct SocialView: View {
     @ObservedObject private var searchControllerProvider = SearchControllerProvider()
     @State private var isSearching = false
     
+    func hideKeyboard() {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+    
     var body: some View {
         TabView(selection: $pageIndex) {
             VStack() {
@@ -61,15 +65,17 @@ struct SocialView: View {
                         }
                         
                         if isSearching {
-                            Button(action: { isSearching.toggle() }) {
+                            Button(action: {
+                                isSearching.toggle()
+                                hideKeyboard()
+                                searchText = ""
+                            }) {
                                 Text("Cancel")
                             }
                         }
                         
                     }
                     .animation(.easeInOut)
-//                    .padding(.horizontal)
-                    
                     
                     Spacer()
                     
@@ -82,6 +88,7 @@ struct SocialView: View {
                         }
                         .padding()
                     }
+                    .animation(.spring())
                     Spacer()
                     
                 }
