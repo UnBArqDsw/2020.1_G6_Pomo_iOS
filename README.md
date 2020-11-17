@@ -27,8 +27,14 @@ Adicione 3 ou mais screenshots do projeto em termos de interface e funcionamento
 ## Instalação 
 **Linguagens**: Swift<br>
 **Tecnologias**: SwiftUI<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
+Para rodar este projeto na sua máquina, siga estes passos:
+1. Clone este repositorio, utilizando este comando no terminal: 
+```bash
+git clone https://github.com/UnBArqDsw/2020.1_G6_Pomo_iOS
+```
+2. Mude os dados do Bundle Identifier no seu Xcode. Atualize com os seus dados pessoais.
+3. Para rodar totalmente a aplicação, note que você precisará compilá-la a partir da versão 12.0 do Xcode.
+3.1. Caso queira rodar a aplicação no seu celular físico, note que ele precisa está na versão 14.x do iOS.
 
 ## Uso 
 Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
