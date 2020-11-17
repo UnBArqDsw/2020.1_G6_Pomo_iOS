@@ -33,7 +33,9 @@ Para rodar este projeto na sua máquina, siga estes passos:
 git clone https://github.com/UnBArqDsw/2020.1_G6_Pomo_iOS
 ```
 2. Mude os dados do Bundle Identifier no seu Xcode. Atualize com os seus dados pessoais.
+
 3. Para rodar totalmente a aplicação, note que você precisará compilá-la a partir da versão 12.0 do Xcode.
+
 3.1. Caso queira rodar a aplicação no seu celular físico, note que ele precisa está na versão 14.x do iOS.
 
 ## Uso 
