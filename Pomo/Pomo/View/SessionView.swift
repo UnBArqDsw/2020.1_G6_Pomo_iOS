@@ -65,15 +65,16 @@ struct SessionView: View {
                                     .onTapGesture {
                                         self.showEllipsisModal.toggle()
                                     }.fullScreenCover(isPresented: $showEllipsisModal) {
-                                        HStack {
-                                            Text("this is a modal view")
-                                            Button(action: { showEllipsisModal.toggle() }) {
-                                                Text("Dismiss")
-                                                    .foregroundColor(.white)
-                                            }
-                                            .padding()
-                                            .background(Color.blue)
-                                            .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
+//                                        HStack {
+//                                            Text("this is a modal view")
+//                                            Button(action: { showEllipsisModal.toggle() }) {
+//                                                Text("Dismiss")
+//                                                    .foregroundColor(.white)
+//                                            }
+//                                            .padding()
+//                                            .background(Color.blue)
+//                                            .clipShape(RoundedRectangle(cornerRadius: 15.0, style: .continuous))
+                                        EditModalView(showAddModal: $showEllipsisModal, name: $name, description: $description, icon: $icon)
                                         }
                                     }
                                 }
@@ -99,14 +100,14 @@ struct SessionView: View {
                 }
 //                .padding(.top, 0.3)
             }.fullScreenCover(isPresented: $showAddModal) {
-                AddModalView(showAddModal: $showAddModal, name: $name, description: $description, icon: $icon)
+                AddModalView(showEditModal: $showAddModal, name: $name, description: $description, icon: $icon)
                     .environment(\.managedObjectContext, moc)
             }
             
         }
         
     }
-}
+
 
 @available(iOS 14.0, *)
 struct SessionView_Previews: PreviewProvider {
@@ -145,7 +146,7 @@ struct SessionCardView: View {
 struct AddModalView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: SessionItem.getAllSessionItems()) var sessionItems: FetchedResults<SessionItem>
-    @Binding var showAddModal: Bool
+    @Binding var showEditModal: Bool
     @Binding var name: String
     @Binding var description: String
     @Binding var icon: String
@@ -167,7 +168,7 @@ struct AddModalView: View {
                     .navigationBarTitle("New Session", displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
                         withAnimation {
-                            self.showAddModal.toggle()
+                            self.showEditModal.toggle()
                             self.hideKeyboard()
                         }
                     }) {
@@ -184,17 +185,81 @@ struct AddModalView: View {
                                 print(error)
                             }
                             withAnimation {
-                                self.showAddModal.toggle()
+                                self.showEditModal.toggle()
                             }
                             self.hideKeyboard()
                         }) {
-                            Text("Next")
+                            Text("Confirm")
                 })
+                    
+            }
+            .onTapGesture {
+                self.hideKeyboard()
             }
         }
         .accentColor(.red)
     }
 }
+
+@available(iOS 14.0, *)
+struct EditModalView: View {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(fetchRequest: SessionItem.getAllSessionItems()) var sessionItems: FetchedResults<SessionItem>
+    @Binding var showAddModal: Bool
+    @Binding var name: String
+    @Binding var description: String
+    @Binding var icon: String
+    
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                TextField("Name of your Focus Session", text: self.$name)
+                TextField("Description of your Focus Session", text: self.$description)
+                TextField("Icon of your Focus Session", text: self.$icon)
+                SymbolPicker(symbolName: $icon)
+                    .frame(height: 100)
+                    
+
+                    .navigationBarTitle("Edit Session", displayMode: .inline)
+                    .navigationBarItems(leading: Button(action: {
+                        withAnimation {
+                            self.showAddModal.toggle()
+                            self.hideKeyboard()
+                        }
+                    }) {
+                        Text("Cancel")
+                        }, trailing: Button(action: {
+//                            let sessionItem = SessionItem(context: moc)
+//                            let editItem = self.sessionItems[self.sessionItems.firstIndex(of: sessionItem) ?? -1]
+//                            editItem.name = self.name
+//                            editItem.sessionDescription = self.description
+//                            editItem.icon = (self.icon).lowercased()
+//
+//                            do {
+//                                try self.moc.save()
+//                            } catch {
+//                                print(error)
+//                            }
+                            withAnimation {
+                                self.showAddModal.toggle()
+                            }
+                            self.hideKeyboard()
+                        }) {
+                            Text("Confirm")
+                })
+            }
+            .onTapGesture {
+                self.hideKeyboard()
+            }
+        }
+        .accentColor(.red)
+    }
+}
+
 
 struct EllipsisView: View {
     var body: some View {
