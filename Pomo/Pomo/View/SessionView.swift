@@ -141,6 +141,7 @@ struct SessionCardView: View {
     }
 }
 
+@available(iOS 14.0, *)
 struct AddModalView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: SessionItem.getAllSessionItems()) var sessionItems: FetchedResults<SessionItem>
@@ -159,6 +160,8 @@ struct AddModalView: View {
                 TextField("Name of your Focus Session", text: self.$name)
                 TextField("Description of your Focus Session", text: self.$description)
                 TextField("Icon of your Focus Session", text: self.$icon)
+                SymbolPicker(symbolName: $icon)
+                    .frame(height: 100)
                     
 
                     .navigationBarTitle("New Session", displayMode: .inline)
