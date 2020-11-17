@@ -25,7 +25,7 @@ struct SymbolPicker: View {
                     ForEach(symbols, id: \.self) { item in
                         Button(action: { symbolName = item }) {
                             Image(systemName: item)
-                                .foregroundColor(.black)
+                                .foregroundColor(.primary)
                                 
                         }
                         

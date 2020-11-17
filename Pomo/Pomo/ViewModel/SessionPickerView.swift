@@ -33,6 +33,7 @@ struct SessionPickerView: View {
                         isSelected.toggle()
                     }) {
                         Text("\(item.name!)")
+                            .foregroundColor(.black)
                     }
                     
                 }
