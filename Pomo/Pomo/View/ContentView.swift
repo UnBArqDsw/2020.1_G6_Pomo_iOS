@@ -70,6 +70,7 @@ struct CapsulePicker: View {
                 }
                 HStack {
                     Text(selectedSession)
+                        .foregroundColor(.black)
                     Spacer()
                     Image(systemName: "chevron.up.circle.fill")
                         .foregroundColor(.pink)
