@@ -36,7 +36,7 @@ git clone https://github.com/UnBArqDsw/2020.1_G6_Pomo_iOS
 
 3. Para rodar totalmente a aplicação, note que você precisará compilá-la a partir da versão 12.0 do Xcode.
 
-3.1. Caso queira rodar a aplicação no seu celular físico, note que ele precisa está na versão 14.x do iOS.
+3.1. Caso queira rodar a aplicação no seu celular físico, note que ele precisa estar na versão 14.x do iOS.
 
 ## Uso 
 Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
